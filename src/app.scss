@@ -1,0 +1,47 @@
+@charset  'utf-8';  
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
+
+// 2. Set your own initial variables
+$brown: #795548;
+$teal: #009688;
+$light_brown: #D7CCC8;
+$dark_brown: #5D4037;
+$light_teal: #B2DFDB;
+$dark_teal: #00796B;
+$orange: #FF9800;
+$green: #4CAF50;
+// 3. Set the derived variables
+$primary: $brown;
+$primary-invert: findColorInvert($brown);
+
+$link: $teal;
+$link-invert: findColorInvert($teal);
+
+$info: $dark_teal;
+$info-invert: findColorInvert($dark_teal);
+
+$warn: $orange;
+$warn-invert: findColorInvert($orange);
+
+$success: $green;
+$success-invert: findColorInvert($green);
+
+// 4. Setup your Custom Colors
+
+// 5. Add new color variables to the color map.
+@import "../node_modules/bulma/sass/utilities/derived-variables.sass";
+
+
+// 6. Import the rest of Bulma
+@import "../node_modules/bulma/bulma";
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('/assets/fonts/ComicNeue-Regular.eot');
+  src: url('/assets/fonts/ComicNeue-Regular.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/ComicNeue-Regular.woff2') format('woff2'),
+       url('/assets/fonts/ComicNeue-Regular.woff') format('woff'),
+       url('/assets/fonts/ComicNeue-Regular.ttf')  format('truetype');
+  font-weight: 400;
+}
