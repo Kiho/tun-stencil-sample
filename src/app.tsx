@@ -17,7 +17,7 @@ export class AppRoot {
             <stencil-route-switch scrollTopOffset={0}>
               <stencil-route url='/' component='home-page' exact={true} />
               <stencil-route url='/login' component='login-page' exact={true} />
-              <stencil-route url='/profile/:username' component='profile-page' />
+              <stencil-route url='/forms' component='forms-page' />
               <stencil-route component='not-found-page' />
             </stencil-route-switch>
           </stencil-router>

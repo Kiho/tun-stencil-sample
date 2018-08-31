@@ -1,8 +1,8 @@
 {
-  "name": "@tunaxor/blogor",
-  "private": true,
+  "name": "tun-stencil-sample",
+  "private": false,
   "version": "0.0.1",
-  "description": "Tunaxor's Website",
+  "description": "Stencil Elements Sample",
   "main": "dist/index.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",

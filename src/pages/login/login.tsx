@@ -46,7 +46,7 @@ export class LoginPage {
     e.preventDefault();
     let res;
     try {
-      res = await fetch('', {
+      res = await fetch('/your-fancy/endpoint/login', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -61,8 +61,7 @@ export class LoginPage {
     } catch (error) {
       return console.warn({ error });
     }
-    const firstPart = res.user.email.split('@').shift();
-    this.history.replace(`/profile/${encodeURI(`@${firstPart}`)}`);
+    console.log({ res });
   }
 
   public onInputChange({ target }) {
@@ -73,7 +72,6 @@ export class LoginPage {
       case 'password':
         this.password = target.value;
         break;
-
       default:
         console.warn('Name not Found');
         break;

@@ -47,6 +47,10 @@ declare global {
       'edit': boolean;
     }
 
+    interface FormsPage {
+      'match': MatchResults;
+    }
+
     interface HomePage {
 
     }
@@ -57,10 +61,6 @@ declare global {
 
     interface NotFoundPage {
       'history': RouterHistory;
-    }
-
-    interface ProfilePage {
-      'match': MatchResults;
     }
   }
 
@@ -97,6 +97,14 @@ declare global {
     };
     
 
+    interface HTMLFormsPageElement extends StencilComponents.FormsPage, HTMLStencilElement {}
+
+    var HTMLFormsPageElement: {
+      prototype: HTMLFormsPageElement;
+      new (): HTMLFormsPageElement;
+    };
+    
+
     interface HTMLHomePageElement extends StencilComponents.HomePage, HTMLStencilElement {}
 
     var HTMLHomePageElement: {
@@ -121,14 +129,6 @@ declare global {
     };
     
 
-    interface HTMLProfilePageElement extends StencilComponents.ProfilePage, HTMLStencilElement {}
-
-    var HTMLProfilePageElement: {
-      prototype: HTMLProfilePageElement;
-      new (): HTMLProfilePageElement;
-    };
-    
-
   namespace JSX {
     interface Element {}
     export interface IntrinsicElements {
@@ -136,10 +136,10 @@ declare global {
     'tun-data-form': JSXElements.TunDataFormAttributes;
     'tun-navbar': JSXElements.TunNavbarAttributes;
     'tun-profile-form': JSXElements.TunProfileFormAttributes;
+    'forms-page': JSXElements.FormsPageAttributes;
     'home-page': JSXElements.HomePageAttributes;
     'login-page': JSXElements.LoginPageAttributes;
     'not-found-page': JSXElements.NotFoundPageAttributes;
-    'profile-page': JSXElements.ProfilePageAttributes;
     }
   }
 
@@ -151,6 +151,7 @@ declare global {
 
     export interface TunDataFormAttributes extends HTMLAttributes {
       'edit'?: boolean;
+      'onResetDataForm'?: (event: CustomEvent) => void;
       'onSubmitDataForm'?: (event: CustomEvent) => void;
     }
 
@@ -160,6 +161,12 @@ declare global {
 
     export interface TunProfileFormAttributes extends HTMLAttributes {
       'edit'?: boolean;
+      'onResetTunProfile'?: (event: CustomEvent) => void;
+      'onSubmitTunProfile'?: (event: CustomEvent) => void;
+    }
+
+    export interface FormsPageAttributes extends HTMLAttributes {
+      'match'?: MatchResults;
     }
 
     export interface HomePageAttributes extends HTMLAttributes {
@@ -173,10 +180,6 @@ declare global {
     export interface NotFoundPageAttributes extends HTMLAttributes {
       'history'?: RouterHistory;
     }
-
-    export interface ProfilePageAttributes extends HTMLAttributes {
-      'match'?: MatchResults;
-    }
   }
 
   interface HTMLElementTagNameMap {
@@ -184,10 +187,10 @@ declare global {
     'tun-data-form': HTMLTunDataFormElement
     'tun-navbar': HTMLTunNavbarElement
     'tun-profile-form': HTMLTunProfileFormElement
+    'forms-page': HTMLFormsPageElement
     'home-page': HTMLHomePageElement
     'login-page': HTMLLoginPageElement
     'not-found-page': HTMLNotFoundPageElement
-    'profile-page': HTMLProfilePageElement
   }
 
   interface ElementTagNameMap {
@@ -195,10 +198,10 @@ declare global {
     'tun-data-form': HTMLTunDataFormElement;
     'tun-navbar': HTMLTunNavbarElement;
     'tun-profile-form': HTMLTunProfileFormElement;
+    'forms-page': HTMLFormsPageElement;
     'home-page': HTMLHomePageElement;
     'login-page': HTMLLoginPageElement;
     'not-found-page': HTMLNotFoundPageElement;
-    'profile-page': HTMLProfilePageElement;
   }
 }
 declare global { namespace JSX { interface StencilJSX {} } }

@@ -2,10 +2,10 @@ import { Component, Prop, State, Listen } from '@stencil/core';
 import { MatchResults } from '@stencil/router';
 
 @Component({
-  tag: 'profile-page',
-  styleUrl: 'profile.scss'
+  tag: 'forms-page',
+  styleUrl: 'forms.scss'
 })
-export class ProfilePage {
+export class FormsPage {
   @Prop() public match: MatchResults;
 
   @State() public editData: boolean = false;
@@ -19,14 +19,17 @@ export class ProfilePage {
             <span class='button is-outlined'
               onClick={this.onEnableEdit.bind(this)} data-name='profile'>Edit Profile</span>
             <span class='button is-outlined'
-              onClick={this.onEnableEdit.bind(this)} data-name='data'>Edit Personal Data</span>
+              onClick={this.onEnableEdit.bind(this)} data-name='data'>Edit Data</span>
           </section>
         </header>
         <main class='card-content'>
-          <section class=''>
-            <tun-profile-form edit={this.editData}></tun-profile-form>
-          </section>
           <section>
+            <h1>Profile Form</h1>
+            <tun-profile-form edit={this.editProfile}></tun-profile-form>
+          </section>
+          <hr />
+          <section>
+            <h1>Data Form</h1>
             <tun-data-form edit={this.editData}></tun-data-form>
           </section>
         </main>
@@ -50,12 +53,22 @@ export class ProfilePage {
   }
 
   @Listen('submitDataForm')
-  public onDataForm({ detail: { email, password, phoneNumber }, }: CustomEvent) {
+  public onSubmitDataForm({ detail: { email, password, phoneNumber }, }: CustomEvent) {
     console.log(email, password, phoneNumber);
   }
 
-  @Listen('submitProfileForm')
-  public onProfileForm({ detail }: CustomEvent) {
+  @Listen('resetDataForm')
+  public onResetDataForm() {
+    this.editData = false;
+  }
+
+  @Listen('submitTunProfile')
+  public onSubmitTunProfile({ detail }: CustomEvent) {
     console.log(detail);
+  }
+
+  @Listen('resetTunProfile')
+  public onResetTunProfile() {
+    this.editProfile = false;
   }
 }

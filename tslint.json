@@ -5,6 +5,8 @@
         "ordered-imports": false,
         "trailing-comma": false,
         "object-literal-sort-keys": false,
-        "quotemark":[true, "single"]
+        "quotemark":[true, "single"],
+        "member-access": false,
+        "arrow-parens": false
     }
 }

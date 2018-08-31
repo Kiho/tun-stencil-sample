@@ -6,10 +6,10 @@ import { RouterHistory } from '@stencil/router';
   styleUrl: 'not-found.scss'
 })
 export class NotFoundPage {
-  @Prop() public history: RouterHistory;
-  public target: HTMLElement;
-  public surprise;
-  public render() {
+  @Prop() history: RouterHistory;
+  target: HTMLElement;
+  surprise;
+  render() {
     return (
       <section class='hero is-light is-fullheight is-bold'>
         <div class='hero-body'>
@@ -31,11 +31,11 @@ export class NotFoundPage {
     );
   }
 
-  public goHome() {
+  goHome() {
     this.history.replace('/');
   }
 
-  public surpriseMe() {
+  surpriseMe() {
     window.location.assign('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
   }
 }

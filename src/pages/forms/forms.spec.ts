@@ -1,19 +1,19 @@
 import { TestWindow } from '@stencil/core/testing';
-import { ProfilePage } from './profile';
+import { FormsPage } from './forms';
 
-describe('profile-page', () => {
+describe('forms-page', () => {
   it('should build', () => {
-    expect(new ProfilePage()).toBeTruthy();
+    expect(new FormsPage()).toBeTruthy();
   });
 
   describe('rendering', () => {
-    let element: HTMLProfilePageElement;
+    let element: HTMLFormsPageElement;
     let testWindow: TestWindow;
     beforeEach(async () => {
       testWindow = new TestWindow();
       element = await testWindow.load({
-        components: [ProfilePage],
-        html: '<profile-page></profile-page>'
+        components: [FormsPage],
+        html: '<forms-page></forms-page>'
       });
     });
 
