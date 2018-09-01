@@ -6,7 +6,7 @@ import { Component, State } from '@stencil/core';
 })
 export class TunNavbar {
 
-  buttonRef: HTMLButtonElement;
+  anchorRef: HTMLAnchorElement;
   menuRef: HTMLMenuElement;
   @State() isActive = false;
 
@@ -16,7 +16,7 @@ export class TunNavbar {
         <section class='navbar-brand'>
           <stencil-route-link url='/' class='navbar-item'>Stencil Example App</stencil-route-link>
           <a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false'
-            onClick={this.toggleActive.bind(this)} ref={(el: HTMLButtonElement) => this.buttonRef = el}>
+            onClick={this.toggleActive.bind(this)} ref={(el: HTMLAnchorElement) => this.anchorRef = el}>
             <span aria-hidden='true'></span>
             <span aria-hidden='true'></span>
             <span aria-hidden='true'></span>
@@ -46,7 +46,7 @@ export class TunNavbar {
   }
 
   toggleActive() {
-    this.buttonRef.classList.toggle('is-active');
+    this.anchorRef.classList.toggle('is-active');
     this.menuRef.classList.toggle('is-active');
   }
 }
